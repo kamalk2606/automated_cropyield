@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document_1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      p{
+         font-size:larger;
+      }
+      
+      .container {
+        max-width: 1300px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 10px;
+      }
+      .nav_logo {
+        padding: 10px 0;
+      }
+      .menu_items {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      /* Hero */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        background: url(images/bg-dot.png), url(images/bg-dot.png), url(images/bg-round.png), url(images/bg-tree.png);
+        background-position: 10px 10px, bottom 215px right 10px, left 55% top -1%, left 45% bottom -1px;
+        background-repeat: no-repeat;
+      }
+      .curveImg {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        pointer-events: none;
+      }
+      .hero .row {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        height: 100%;
+        width: 100%;
+        padding: 0 60px;
+        gap: 30px;
+        justify-content: space-between;
+      }
+      .hero .row h2,
+      .hero .row p {
+        color: #fff;
+      }
+      .hero .row h2 {
+        font-size: 36px;
+        margin-bottom: 16px;
+      }
+      .hero .column {
+        width: 50%;
+      }
+      .buttons {
+        display: flex;
+        margin-top: 25px;
+        gap: 10px;
+      }
+      .btn {
+         align-items: center;
+        padding: 14px 100px;
+        background: #fff;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .btn:last-child {
+        border: 2px solid #2e37d7;
+        background:blue;
+        color:white;
+      }
+      .btn:last-child:hover {
+        background-color: #fff;
+        color:black;
+      }
+      .hero_img {
+        width: 100%;
+        z-index: 10;
+        position: relative;
+      }
+      #menu_toggle {
+        display: none;
+        color: #fff;
+      }
+      
+      /* Reponsive */
+      @media (width < 860px) {
+        #menu_toggle {
+          display: block;
+        }
+        .nav {
+          padding: 0 20px;
+          background-color:black;
+        }
+      
+        .menu_items {
+          position: fixed;
+          top: 0;
+          width: 260px;
+          background-color: black;
+          height: 100%;
+          left: -100%;
+          padding: 50px 30px 30px;
+          flex-direction: column;
+          transition: all 0.5s ease;
+        }
+        .showMenu .menu_items {
+          left: 0;
+        }
+        a {
+          color: white;
+        }
+        #menu_toggle {
+          width: 20px;
+          cursor: pointer;
+        }
+        .menu_items #menu_toggle {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+        .hero {
+          padding-top: 130px;
+        }
+        .hero .row {
+          flex-direction: column;
+          padding: 0 20px;
+          justify-content: center;
+        }
+        .hero .row .column {
+          width: 100%;
+        }
+      }
+      
+      @media (width < 600px) {
+        .hero {
+          padding-top: 80px;
+        }
+        .hero .row h2 {
+          font-size: 26px;
+        }
+        .buttons {
+          justify-content: center;
+        }
+        .btn {
+          padding: 10px 16px;
+        }
+      }
+      header{
+      
+         background-color: black;
+      }
+      .fixed-con {
+        z-index: 9724790009779558!important;
+        background-color: #f7f8fc;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+      }
+      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+       z-index: 9724790009779!important;
+       top:0;
+       left:unset;
+       right:-5px;
+       display:none!important;
+       border-radius:50%;
+       border:2px solid gold;
+      }
+      .VIpgJd-ZVi9od-aZ2wEe-OiiCO{
+        width:80px;
+        height:80px;
+      }
+      /*hide google translate link | logo | banner-frame */
+      .goog-logo-link,.gskiptranslate,.goog-te-gadget span,.goog-te-banner-frame,#goog-gt-tt, .goog-te-balloon-frame,div#goog-gt-{
+        display: none!important;
+      }
+      .goog-te-gadget {
+        color: transparent!important;
+        
+      }
+    
+      .goog-text-highlight {
+        background: none !important;
+        box-shadow: none !important;
+      }
+      
+     /*google translate Dropdown */
+     
+     #google_translate_element select{
+    
+     background:black;
+     color:white;
+     border: none;
+     border-radius:4px;
+     }
+    </style>
+    
+</head>
+<body>
+  <main>
+  <header>
+    <div style="background-color: black;">mg</div>
+    <nav class="nav container">
+      
+      <h2 class="nav_logo"><a href="/"><img src="{{url_for('static', filename='icon-image.png')}}" width="40px"alt="">
+        <span>
+          Agrigold
+        </span></a></h2>
+
+      <ul class="menu_items">
+        <img src="images/bars.svg" alt="AgriGold" id="menu_toggle" />
+        <li><a href="/" class="nav_link">Home</a></li>
+        <li><a href="/yield" class="nav_link">Prediction</a></li>
+        <li><div id='google_translate_element'></div></li>
+      </ul>
+      <img src="{{url_for('static', filename='bars.svg')}}"alt="timesicon" id="menu_toggle" />
+    </nav>
+  </header>
+</main>
+
+<br><br><br>
+<section class="how_section layout_padding">
+  <div class="heading_container">
+    <h2 style="text-align: center;"><br><br>
+      INPUT PARAMETERS
+    </h2>
+  </div>
+  <div class="how_container">
+   
+    <div class="box">
+      
+      <div class="img-box">
+          
+          <img src="{{url_for('static', filename='Telangana-New-Map-33-Districts.png')}}" alt="">
+        </div>
+      
+      <div class="detail-box">
+        <h5>
+          District Name
+
+        </h5>
+        <p>
+          The User Has to select the name of the District. This Attribute is plays a major role in Prediction
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='season.webp')}}" alt="">
+      </div>
+      <div class="detail-box">
+        <h5>
+          Season
+
+        </h5>
+        <p>
+          The User has to Enter Season(Rabi/Kharif). It also plays a major attribute in prediction
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='crop-type.png')}}" alt="">
+      </div>
+      <div class="detail-box">
+        <h5>
+          Crop Type
+        </h5>
+        <p>
+          The User has to enter which crop he want to grow to get the yield for the crop he entered
+        </p>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='irrigation-level.png')}}" alt="">
+      </div>
+      <div class="detail-box">
+        <h5>
+          Irrigation Level
+        </h5>
+        <p>
+          The User should enter Irrigation level i.e the water level given to the crop to get accurate prediction
+          If the User dont have these values the model will take default values
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='weather.png')}}" alt="">
+      </div>
+      <div class="detail-box">
+        <h5>
+          Weather
+        </h5>
+        <p>
+          The User has to enter minimum temperature,maximum Temperature and Rainfall but many users will not 
+          have the data of these so we have an inbuilt api such that user just need to enter the District to get these values
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='soil-nutrients.png')}}"  alt="">
+      </div>
+      <div class="detail-box">
+        <h5>
+          Soil Nutrients
+        </h5>
+        <p>
+          Soil Nutrients play a major role in the prediction of the yield.The user has to enter ph value,nitrogen , phosphorous , pottasium , zinc , iron , copper , Managnese
+          If the User doesnt know the values of these parameters the model will take default values
+        </p>
+      </div>
+    </div>
+    
+  </div>
+  
+</section>
+<section class="how_section layout_padding">
+  <div class="heading_container">
+    <h2 style="text-align: center;"><br><br>
+      PREDICTION
+    </h2>
+  </div>
+  <div class="how_container">
+   
+    
+    
+    <div class="box">
+      <a href="/predict_yield">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='agriculture1.avif')}}" alt="">
+      </div>
+    </a>
+      <div class="detail-box">
+        <h5>
+          Prediction With All Parameters
+        </h5>
+        <p>
+          In this interactive prediction model, users enters input parameters. Predictions are based on the entered values. The model generates personalized and insightful predictions using advanced algorithms.
+        </p>
+      </div>
+    </div>
+    
+
+    
+    <div class="box">
+      <a href="/default_yield">
+      <div class="img-box">
+        <img src="{{url_for('static', filename='agriculture2.png')}}"  alt="">
+      </div>
+    </a>
+      <div class="detail-box">
+        <h5>
+          Prediction With Some Parameters
+        </h5>
+        <p>
+        
+In this interactive prediction model, users are required to input the district, season, and crop name. The temperature data is obtained through an API call, while the soil fertility values are set to default. With these inputs, the model utilizes its advanced algorithms to generate insightful predictions tailored to the specific parameters provided by the user.  
+        </p>
+      </div>
+    
+    </div>
+  
+    
+  </div>
+  
+</section>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+     new google.translate.TranslateElement({
+        pageLanguage: 'en', layout: 
+        google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: 
+        true, includedLanguages: 'te,hi', gaTrack: true, gaId: 'AIzaSyAtatY9GysOBpLseUxVdfNmtCx01MLO8_M'
+        }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
